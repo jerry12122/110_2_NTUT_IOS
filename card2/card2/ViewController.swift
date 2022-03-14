@@ -16,7 +16,7 @@ class ViewController: UIViewController {
             filps_view.text = "Flips:\(flips)"
         }
     }
-    var emoji_choices = ["🤡","💩"]
+    var emoji_choices = ["🤡","💩","🥵","🥴","🥴","🥵","💩","🤡"]
     @IBOutlet var btn_collection: [UIButton]!
     
     @IBAction func flipCard(_ sender: UIButton) {
