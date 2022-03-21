@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var game:MatchingGame = MatchingGame()
+    
     @IBOutlet weak var filps_view: UILabel!
     var flips:Int = 0
     {
@@ -32,28 +34,7 @@ class ViewController: UIViewController {
             flips+=1
         }
     }
-    /*
-    @IBAction func cCard(_ sender: UIButton) {
-        if sender.currentTitle == "🤡"{
-            sender.setTitle("", for: UIControlState.normal)
-            sender.backgroundColor = #colorLiteral(red: 0.8505474329, green: 0.8489837646, blue: 0.9567221999, alpha: 1)
-        }else{
-            sender.setTitle("🤡", for: UIControlState.normal)
-            sender.backgroundColor = #colorLiteral(red: 0.9572871327, green: 0.9418804049, blue: 0.8999911547, alpha: 1)
-        }
-        flips+=1
-    }
-    @IBAction func pCard(_ sender: UIButton) {
-        if sender.currentTitle == "💩"{
-            sender.setTitle("", for: UIControlState.normal)
-            sender.backgroundColor = #colorLiteral(red: 0.8505474329, green: 0.8489837646, blue: 0.9567221999, alpha: 1)
-        }else{
-            sender.setTitle("💩", for: UIControlState.normal)
-            sender.backgroundColor = #colorLiteral(red: 0.9572871327, green: 0.9418804049, blue: 0.8999911547, alpha: 1)
-        }
-        flips+=1
-    }
-    */
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

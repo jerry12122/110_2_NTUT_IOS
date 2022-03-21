@@ -14,6 +14,8 @@
 		3F65F8CD27D87388007B1437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F65F8CB27D87388007B1437 /* LaunchScreen.storyboard */; };
 		3F65F8D827D87388007B1437 /* card2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65F8D727D87388007B1437 /* card2Tests.swift */; };
 		3F65F8E327D87388007B1437 /* card2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65F8E227D87388007B1437 /* card2UITests.swift */; };
+		C4ADD48027E1AF110027EFA5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ADD47F27E1AF110027EFA5 /* Card.swift */; };
+		C4ADD48227E1AF3F0027EFA5 /* MatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ADD48127E1AF3F0027EFA5 /* MatchingGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		3F65F8DE27D87388007B1437 /* card2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = card2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F65F8E227D87388007B1437 /* card2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card2UITests.swift; sourceTree = "<group>"; };
 		3F65F8E427D87388007B1437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4ADD47F27E1AF110027EFA5 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C4ADD48127E1AF3F0027EFA5 /* MatchingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				3F65F8C927D87388007B1437 /* Assets.xcassets */,
 				3F65F8CB27D87388007B1437 /* LaunchScreen.storyboard */,
 				3F65F8CE27D87388007B1437 /* Info.plist */,
+				C4ADD47F27E1AF110027EFA5 /* Card.swift */,
+				C4ADD48127E1AF3F0027EFA5 /* MatchingGame.swift */,
 			);
 			path = card2;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4ADD48027E1AF110027EFA5 /* Card.swift in Sources */,
 				3F65F8C527D87388007B1437 /* ViewController.swift in Sources */,
+				C4ADD48227E1AF3F0027EFA5 /* MatchingGame.swift in Sources */,
 				3F65F8C327D87388007B1437 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
