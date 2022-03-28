@@ -8,10 +8,20 @@
 
 import Foundation
 struct Card{
-    var isFaceUp: false
-    var isMatched: false
+    var isFaceUp = false
+    var isMatched = false
     var identifier: Int
-    init(identifier i:Int){
-        identifier = i
+    
+    
+    static var identifierFactory = 0
+    
+    static func getUniqueIdentifier()->Int{
+        identifierFactory+=1
+        return identifierFactory
     }
+    init(){
+        self.identifier = Card.getUniqueIdentifier()
+    }
+
+    
 }

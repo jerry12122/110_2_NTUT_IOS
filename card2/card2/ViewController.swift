@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var game:MatchingGame = MatchingGame()
+    lazy var game:MatchingGame = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2)
     
     @IBOutlet weak var filps_view: UILabel!
     var flips:Int = 0
@@ -18,22 +18,48 @@ class ViewController: UIViewController {
             filps_view.text = "Flips:\(flips)"
         }
     }
-    var emoji_choices = ["🤡","💩","🥵","🥴","🥴","🥵","💩","🤡"]
     @IBOutlet var btn_collection: [UIButton]!
+    var emoji_choices = ["🤡","💩","🥵","🥴"]
+
+    var emoji = Dictionary<Int,String>()
     
     @IBAction func flipCard(_ sender: UIButton) {
-        if let cardNumber = btn_collection.firstIndex(of: sender){
-            print("cardNumber = \(String(describing: cardNumber))")
-            if sender.currentTitle == emoji_choices[cardNumber]{
-                sender.setTitle("", for: UIControl.State.normal)
-                sender.backgroundColor = #colorLiteral(red: 0.8505474329, green: 0.8489837646, blue: 0.9567221999, alpha: 1)
+        if let cardNumber =  btn_collection.firstIndex(of: sender){
+            game.chooseCard(at: cardNumber)
+            updateViewFromModel()
+            
+        }else{
+            print("no in the collection")
+        }
+        flips += 1
+    }
+    
+    func updateViewFromModel(){
+        for index in btn_collection.indices{
+            let button = btn_collection[index]
+            let card = game.cards[index]
+            if card.isFaceUp{
+                button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             }else{
-                sender.setTitle(emoji_choices[cardNumber], for: UIControl.State.normal)
-                sender.backgroundColor = #colorLiteral(red: 0.9572871327, green: 0.9418804049, blue: 0.8999911547, alpha: 1)
+                button.setTitle("", for: UIControl.State.normal)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.9529411765, alpha: 1)
             }
-            flips+=1
         }
     }
+    
+    func emoji(for card:Card)->String{
+        
+        if emoji[card.identifier] == nil{
+            let randomIndex = Int(arc4random_uniform(UInt32(emoji_choices.count)))
+            emoji[card.identifier] = emoji_choices.remove(at: randomIndex)
+        }
+        return emoji[card.identifier] ?? "?"
+    }
+    
+    
+    
+    
 
     
     override func viewDidLoad() {
