@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    lazy var game:MatchingGame = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2)
+    lazy var game:MatchingGame = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2,emoji: emoji_choices)
     
     @IBAction func FlipAll(_ sender: Any) {
         game.flipAll(status:game.isFlipAll)
         updateViewFromModel()
     }
     @IBAction func reset(_ sender: Any) {
-        game = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2)
+        game = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2,emoji: game.emojiChoices)
         emoji_choices = game.emojiChoices
         updateViewFromModel()
     }

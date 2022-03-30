@@ -12,7 +12,7 @@ class MatchingGame{
     //var indexAndOneAndOnlyFaceUpCard:Int?
     var flipCount:Int
     var isFlipAll:Bool
-    var emojiChoices = ["🤡","💩","🥵","🥴","🤢","🤑","😈","👺"]
+    var emojiChoices:Array<String> = Array()
     var indexAndOneAndOnlyFaceUpCard:Int?{
         get{
             var foundIndex:Int?
@@ -62,7 +62,7 @@ class MatchingGame{
         }
         isFlipAll = !status
     }
-    init(numberOfPairsOfCards: Int){
+    init(numberOfPairsOfCards: Int , emoji:Array<String>){
         for _ in 1...numberOfPairsOfCards{
             let card = Card()
             cards += [card,card]
@@ -73,6 +73,7 @@ class MatchingGame{
             Rcards.append(cards[randomIndex])
             cards.remove(at: randomIndex)
         }
+        emojiChoices = emoji
         cards = Rcards
         flipCount = 0
         isFlipAll = false
