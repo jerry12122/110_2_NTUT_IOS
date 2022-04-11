@@ -12,7 +12,19 @@ class MatchingGame{
     //var indexAndOneAndOnlyFaceUpCard:Int?
     var flipCount:Int
     var isFlipAll:Bool
-    var emojiChoices:Array<String> = Array()
+    var score:Int
+    
+    var emoji_choices = [["🤡","💩","🥵","🥴","🤢","🤑","😈","👺"],
+                         ["🐶","🐱","🐭","🐮","🐒","🦄","🐷","🦊"],
+                        ["🍎","🍓","🍌","🍊","🍉","🍒","🍑","🥑"],
+                        ["⚽️","🏀","🏈","⚾️","🥎","🎾","🏐","🎱"]]
+    var emoji_theme = ["faces","animals","fruits","balls"]
+    
+    var emojiChoices: Array<String> = Array()
+    var emojiTheme:String
+    
+    var themeIndex:Int
+    
     var indexAndOneAndOnlyFaceUpCard:Int?{
         get{
             var foundIndex:Int?
@@ -42,19 +54,28 @@ class MatchingGame{
                 if cards[matchIndex].identifier == cards[index].identifier{
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    score = score + 30
+                }
+                else{
+                    score = score - 10
                 }
                 cards[index].isFaceUp = true
                 
             }else if let matchIndex = indexAndOneAndOnlyFaceUpCard,matchIndex == index{
                 cards[index].isFaceUp = false
+                
             }
             else{
                 indexAndOneAndOnlyFaceUpCard = index
+                
             }
             flipCount += 1
         }
     }
     func flipAll(status : Bool){
+        if !status{
+            score = score - 1000
+        }
         flipCount = 0
         for index in cards.indices{
             cards[index].isFaceUp = !status
@@ -62,20 +83,27 @@ class MatchingGame{
         }
         isFlipAll = !status
     }
-    init(numberOfPairsOfCards: Int , emoji:Array<String>){
+    init(numberOfPairsOfCards: Int ){
         for _ in 1...numberOfPairsOfCards{
             let card = Card()
             cards += [card,card]
         }
+        /*
         var Rcards: Array<Card> = Array()
         while(!cards.isEmpty){
             let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
             Rcards.append(cards[randomIndex])
             cards.remove(at: randomIndex)
         }
-        emojiChoices = emoji
-        cards = Rcards
+        	 = Rcards
+         */
+        cards = cards.shuffled()
         flipCount = 0
         isFlipAll = false
+        score = 0
+        themeIndex = Int.random(in: 0...3)
+        emojiChoices = emoji_choices[themeIndex]
+        emojiTheme = emoji_theme[themeIndex]
     }
 }
+

@@ -140,7 +140,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flips:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVF-FZ-ShO">
-                                <rect key="frame" x="155" y="602" width="141" height="35"/>
+                                <rect key="frame" x="25" y="673" width="141" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -259,7 +259,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-4o-N3d">
-                                <rect key="frame" x="278" y="598" width="87" height="42"/>
+                                <rect key="frame" x="199" y="616" width="166" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -285,7 +285,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tc-5w-8i9">
-                                <rect key="frame" x="25" y="598" width="94" height="42"/>
+                                <rect key="frame" x="25" y="616" width="166" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -311,12 +311,28 @@
                                     <action selector="FlipAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZJQ-lq-sag"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKe-yq-DW5">
+                                <rect key="frame" x="25" y="716" width="271" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Theme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCD-Zi-Dp8">
+                                <rect key="frame" x="25" y="759" width="271" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.80408519506454468" green="0.93856364488601685" blue="0.89365494251251221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="filps_view" destination="tVF-FZ-ShO" id="Dss-XF-tPf"/>
+                        <outlet property="flips_view" destination="tVF-FZ-ShO" id="25Q-GB-D0L"/>
+                        <outlet property="scores_view" destination="xKe-yq-DW5" id="wYa-Xb-3NC"/>
+                        <outlet property="theme_view" destination="eCD-Zi-Dp8" id="4li-Xt-s6C"/>
                         <outletCollection property="btn_collection" destination="fci-GP-5hG" collectionClass="NSMutableArray" id="DkM-kO-g5d"/>
                         <outletCollection property="btn_collection" destination="fkV-rv-D6u" collectionClass="NSMutableArray" id="5bN-sa-Jyr"/>
                         <outletCollection property="btn_collection" destination="zRc-My-6Ni" collectionClass="NSMutableArray" id="DI9-QO-n3J"/>

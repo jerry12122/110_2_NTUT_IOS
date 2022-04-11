@@ -9,27 +9,45 @@
 import UIKit
 
 class ViewController: UIViewController {
-    lazy var game:MatchingGame = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2,emoji: emoji_choices)
     
+    
+    
+    @IBOutlet weak var theme_view: UILabel!
+
+
+    lazy var game:MatchingGame = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2)
+    lazy var emoji_choices:Array<String> = game.emojiChoices
+    lazy var theme = game.emojiTheme
+
     @IBAction func FlipAll(_ sender: Any) {
         game.flipAll(status:game.isFlipAll)
         updateViewFromModel()
     }
+    
     @IBAction func reset(_ sender: Any) {
-        game = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2,emoji: game.emojiChoices)
+        game = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2)
         emoji_choices = game.emojiChoices
+        theme = game.emojiTheme
         updateViewFromModel()
     }
-    @IBOutlet weak var filps_view: UILabel!
+
+    @IBOutlet weak var flips_view: UILabel!
+    @IBOutlet weak var scores_view: UILabel!
     var flips:Int = 0
     {
         didSet{
-            filps_view.text = "Flips:\(flips)"
+            flips_view.text = "Flips:\(flips)"
+        }
+    }
+    var scores:Int = 0
+    {
+        didSet{
+            scores_view.text = "Scores:\(scores)"
         }
     }
     
     @IBOutlet var btn_collection: [UIButton]!
-    var emoji_choices = ["🤡","💩","🥵","🥴","🤢","🤑","😈","👺"]
+    
     var emoji = Dictionary<Int,String>()
     
     @IBAction func flipCard(_ sender: UIButton) {
@@ -56,6 +74,8 @@ class ViewController: UIViewController {
             }
         }
         flips = game.flipCount
+        scores = game.score
+        theme_view.text = "Theme:\(theme)"
     }
     
     func emoji(for card:Card)->String{
