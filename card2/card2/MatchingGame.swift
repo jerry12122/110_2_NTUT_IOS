@@ -16,8 +16,8 @@ class MatchingGame{
     
     var emoji_choices = [["🤡","💩","🥵","🥴","🤢","🤑","😈","👺"],
                          ["🐶","🐱","🐭","🐮","🐒","🦄","🐷","🦊"],
-                        ["🍎","🍓","🍌","🍊","🍉","🍒","🍑","🥑"],
-                        ["⚽️","🏀","🏈","⚾️","🥎","🎾","🏐","🎱"]]
+                         ["🍎","🍓","🍌","🍊","🍉","🍒","🍑","🥑"],
+                         ["⚽️","🏀","🏈","⚾️","🥎","🎾","🏐","🎱"]]
     var emoji_theme = ["faces","animals","fruits","balls"]
     
     var emojiChoices: Array<String> = Array()
@@ -89,13 +89,13 @@ class MatchingGame{
             cards += [card,card]
         }
         /*
-        var Rcards: Array<Card> = Array()
-        while(!cards.isEmpty){
-            let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
-            Rcards.append(cards[randomIndex])
-            cards.remove(at: randomIndex)
-        }
-        	 = Rcards
+         var Rcards: Array<Card> = Array()
+         while(!cards.isEmpty){
+         let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
+         Rcards.append(cards[randomIndex])
+         cards.remove(at: randomIndex)
+         }
+         = Rcards
          */
         cards = cards.shuffled()
         flipCount = 0

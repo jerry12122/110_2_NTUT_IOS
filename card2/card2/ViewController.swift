@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var theme_view: UILabel!
-
-
+    
+    
     lazy var game:MatchingGame = MatchingGame(numberOfPairsOfCards: (btn_collection.count+1)/2)
     lazy var emoji_choices:Array<String> = game.emojiChoices
     lazy var theme = game.emojiTheme
-
+    
     @IBAction func FlipAll(_ sender: Any) {
         game.flipAll(status:game.isFlipAll)
         updateViewFromModel()
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         theme = game.emojiTheme
         updateViewFromModel()
     }
-
+    
     @IBOutlet weak var flips_view: UILabel!
     @IBOutlet weak var scores_view: UILabel!
     var flips:Int = 0
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         }
         return emoji[card.identifier] ?? "?"
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
